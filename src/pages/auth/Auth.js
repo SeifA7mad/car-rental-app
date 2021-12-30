@@ -11,7 +11,7 @@ const Login = () => {
       <div className={classes.leftContainer}>
         <Routes>
           <Route path='/login' element={<LoginForm />} />
-          <Route path='/login' element={<SignupForm />} />
+          <Route path='/signup' element={<SignupForm />} />
         </Routes>
       </div>
       <div className={classes.rightContainer}></div>

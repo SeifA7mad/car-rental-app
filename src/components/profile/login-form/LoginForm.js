@@ -1,4 +1,5 @@
 import { useRef, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import {AuthContext} from '../../../store/auth-context';
 import useHttp from '../../../hooks/use-http';
@@ -75,6 +76,7 @@ const LoginForm = () => {
           name='Password'
         />
         <Button type='submit'> Login </Button>
+        <Button type='link'> <Link to='/auth/signup'> Signup </Link> </Button>
       </form>
     </div>
   );
