@@ -1,0 +1,16 @@
+.iconText {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    height: fit-content;
+    font-size: 1rem;
+    user-select: none;
+}
+
+.iconText * {
+    margin: auto .5rem;
+}
+
+.clickIcon {
+    cursor: pointer;
+}
