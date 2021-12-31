@@ -1,11 +1,13 @@
 import { useRef, useContext } from 'react';
 
-import useHttp from '../../../hooks/use-http';
+import { useNavigate } from 'react-router';
 
-import { AuthContext } from '../../../store/auth-context';
+import useHttp from '../../../../hooks/use-http';
+
+import { AuthContext } from '../../../../store/auth-context';
 
 import classes from './AddVehicleForm.module.css';
-import '../../../css/add-style.css';
+import '../../../../css/add-style.css';
 
 const validateEmpty = (value) => {
   return value.trim() !== '';
@@ -23,6 +25,8 @@ const AddVehicleForm = () => {
   const availableCountInputRef = useRef();
   const recommendedForInputRef = useRef();
 
+  const navigate = useNavigate();
+
   const {
     isLoading,
     error: errorRequest,
@@ -33,7 +37,8 @@ const AddVehicleForm = () => {
 
   const getAddedVehileData = (dataObj) => {
     console.log(dataObj);
-  }
+    navigate('/admin/vehicles');
+  };
 
   const onSubmitFormHandler = (event) => {
     event.preventDefault();

@@ -12,7 +12,11 @@ import classes from './Orders.module.css';
 const Orders = () => {
   const [orderList, setOrderList] = useState([]);
 
-  const { isLoadingOrders, error: errorRequestOrders, fetchData: getOrders } = useHttp();
+  const {
+    isLoadingOrders,
+    error: errorRequestOrders,
+    fetchData: getOrders,
+  } = useHttp();
 
   const { isLoading, error: errorRequest, fetchData: cancelOrder } = useHttp();
 
@@ -22,6 +26,14 @@ const Orders = () => {
     setOrderList(orderData);
   };
 
+  const onCancelOrder = (dataObj, id) => {
+    if (!dataObj) {
+      return;
+    }
+    const newOrderList = orderList.filter((order) => order.orderId._id !== id);
+    setOrderList(newOrderList);
+  };
+
   useEffect(() => {
     getOrders(
       {
@@ -29,12 +41,12 @@ const Orders = () => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': userToken.token,
+          Authorization: userToken.token,
         },
       },
       setOrderData.bind(null)
     );
-  }, []);
+  }, [orderList]);
 
   const onCanelOrderHandler = (id) => {
     cancelOrder(
@@ -49,9 +61,9 @@ const Orders = () => {
           orderId: id,
         },
       },
-      setOrderData.bind(null)
+      onCancelOrder
     );
-  }
+  };
 
   let content = <ErrorMessage errorText='No Orders for today :(' />;
 

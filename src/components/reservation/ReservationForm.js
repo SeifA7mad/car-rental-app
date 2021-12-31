@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import { AuthContext } from '../../store/auth-context';
 import useHttp from '../../hooks/use-http';
@@ -71,6 +72,8 @@ const ReservationForm = () => {
 
   const { userToken } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const {
     isLoading,
     error: errorRequest,
@@ -100,6 +103,7 @@ const ReservationForm = () => {
   const recivedDataHandler = (dataObj) => {
     console.log(dataObj);
     //navigate to orders
+    navigate('/store/orders');
   };
 
   const onSubmitHandler = (event) => {

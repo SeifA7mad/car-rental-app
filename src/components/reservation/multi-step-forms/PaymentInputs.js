@@ -22,6 +22,7 @@ const PaymentInputs = ({inputObj}) => {
           label='Expire Month Date'
           onChange={expiryMonthInput.onChangeInputValueHandler}
           value={expiryMonthInput.value}
+          placeholder={'mm'}
           onBlur={expiryMonthInput.onBlurInputHanlder}
           error={
             expiryMonthInput.inputHasAnError ? expiryMonthInput.error : null
@@ -43,7 +44,7 @@ const PaymentInputs = ({inputObj}) => {
           label='Enter Card cvv'
           onChange={cardCvcInput.onChangeInputValueHandler}
           value={cardCvcInput.value}
-          placeholder={'mm'}
+          placeholder={'***'}
           onBlur={cardCvcInput.onBlurInputHanlder}
           error={cardCvcInput.inputHasAnError ? cardCvcInput.error : null}
         />

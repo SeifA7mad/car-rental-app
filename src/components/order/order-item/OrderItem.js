@@ -12,7 +12,7 @@ const OrderItem = ({id, trackingDetails, vehicle, totalPrice, orderDate, onCanel
       <div className='car-wrap ftco-animate fadeInUp ftco-animated'>
         <div
           className='img d-flex align-items-end'
-          style={{ backgroundImage: `url()` }}
+          style={{ backgroundImage: `url(${vehicle.imgURL})` }}
         >
           <div className='price-wrap d-flex'>
             <span className='rate'>{totalPrice} USD</span>
@@ -34,7 +34,9 @@ const OrderItem = ({id, trackingDetails, vehicle, totalPrice, orderDate, onCanel
           <Button
             type='link'
             className='btn btn-black btn-outline-black mr-1'
-            click={() => {onCanel(id)}}
+            click={() => {
+              onCanel(id);
+            }}
           >
             Cancel
           </Button>
