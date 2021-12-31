@@ -71,11 +71,11 @@ const ReservationForm = () => {
 
   const { userToken } = useContext(AuthContext);
 
-   const {
-     isLoading,
-     error: errorRequest,
-     fetchData: placeOrderRequest,
-   } = useHttp();
+  const {
+    isLoading,
+    error: errorRequest,
+    fetchData: placeOrderRequest,
+  } = useHttp();
 
   // state: to handle the forms has been visted
   const [activeLength, setActiveLength] = useState(1);
@@ -100,10 +100,9 @@ const ReservationForm = () => {
   const recivedDataHandler = (dataObj) => {
     console.log(dataObj);
     //navigate to orders
-  }
+  };
 
   const onSubmitHandler = (event) => {
-
     event.preventDefault();
     // if (!formValidaty) {
     //   return;
@@ -136,7 +135,6 @@ const ReservationForm = () => {
       },
       recivedDataHandler.bind(null)
     );
-
   };
 
   return (

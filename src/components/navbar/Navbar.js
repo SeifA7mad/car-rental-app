@@ -17,7 +17,7 @@ const Navbar = () => {
           <NavLink to='/orders'>Orders</NavLink>
         </li>
         <li>
-          <NavLink to='/home'>Home</NavLink>
+          <NavLink to='/admin/addNewCar'>Add new car</NavLink>
         </li>
         <li onClick={authCtx.logout}>logout</li>
       </ul>

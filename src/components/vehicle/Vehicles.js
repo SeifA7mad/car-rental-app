@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router';
-
 import useHttp from '../../hooks/use-http';
 
 import ErrorMessage from '../ui/error-message/ErrorMessage';
@@ -29,7 +27,7 @@ const Vehicles = () => {
       },
       setVehicleData.bind(null)
     );
-  }, [getVehicles]);
+  }, []);
 
   let content = <ErrorMessage errorText='No Vehicles for today :(' />;
 
@@ -45,7 +43,7 @@ const Vehicles = () => {
       />
     ));
   }
-  return <div className={classes.movies}>{content}</div>;
+  return <div className={classes.vehicles}>{content}</div>;
 };
 
 export default Vehicles;

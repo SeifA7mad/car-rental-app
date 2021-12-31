@@ -7,6 +7,8 @@ import { AuthContext } from './store/auth-context';
 
 import Auth from './pages/auth/Auth';
 import Store from './pages/store/Store';
+import Order from './pages/order/Order';
+import Admin from './pages/admin/Admin';
 
 const App = () => {
 
@@ -21,8 +23,10 @@ const App = () => {
       <Routes>
         {!isLoggedIn && <Route path='/auth/*' element={<Auth />} />}
         <Route path='/store/*' element={<Store />} />
-        <Route path='*' element={<Navigate to='/store' />} />
+        <Route path='/orders/*' element={<Order />} />
+        <Route path='/admin/*' element={<Admin />} />
         <Route path='/auth' element={<Navigate to='/auth/login' />} />
+        <Route path='*' element={<Navigate to='/store' />} />
       </Routes>
     </>
   );
