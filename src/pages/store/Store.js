@@ -2,8 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 
 import classes from './Store.module.css';
 import '../../css/cars-style.css';
+
 import Vehicles from '../../components/vehicle/Vehicles';
 import VehicleDesc from '../../components/vehicle/vehicle-desc/VehicleDesc';
+import ReservationForm from '../../components/reservation/ReservationForm';
 
 const Store = () => {
   return (
@@ -19,7 +21,7 @@ const Store = () => {
       <Routes>
         <Route path='/' element={<Vehicles />} />
         <Route path='/:id' element={<VehicleDesc />} />
-        {/* <Route path='/reservation/:id' element={<VehicleDesc />} /> */}
+        <Route path='/reservation/:id' element={<ReservationForm />} />
       </Routes>
     </section>
   );

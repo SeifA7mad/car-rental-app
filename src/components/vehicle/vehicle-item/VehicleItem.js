@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router';
+
 import classes from './VehicleItem.module.css';
 import '../../../css/cars-style.css';
-
+import Button from '../../ui/button/Button';
 
 const VehicleItem = ({ id, title, type, price, imgURL }) => {
+    const navigate = useNavigate();
   return (
     <div className='col-md-3'>
       <div className='car-wrap ftco-animate fadeInUp ftco-animated'>
@@ -22,15 +25,20 @@ const VehicleItem = ({ id, title, type, price, imgURL }) => {
           <h2 className='mb-0'>{title}</h2>
           <span>{type}</span>
           <p className='d-flex mb-0 d-block'>
-            <a href='book.html' className='btn btn-black btn-outline-black mr-1'>
+            <Button
+              type='link'
+              className='btn btn-black btn-outline-black mr-1'
+              click={() => navigate(`reservation/${id}`)}
+            >
               Book now
-            </a>
-            <a
-              href='car-details1.html'
+            </Button>
+            <Button
+              click={() => navigate(`${id}`)}
+              type='link'
               className='btn btn-black btn-outline-black ml-1'
             >
               Details
-            </a>
+            </Button>
           </p>
         </div>
       </div>

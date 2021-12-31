@@ -20,12 +20,15 @@ const LoginForm = () => {
   const emailInputRef = useRef();
   const passInputRef = useRef();
 
+
+
   const authCtx = useContext(AuthContext);
 
   // fetch hook
   const { isLoading, error: errorRequest, fetchData: loginRequest } = useHttp();
 
   const getUserData = (userData) => {
+    console.log(userData);
     authCtx.login(userData);
     setError('');
   };
