@@ -1,0 +1,31 @@
+.nav {
+    background-color: rgba(250, 180, 51, 0.479);
+    width: 100%;
+    padding: 0.1rem;
+    position: fixed;
+    height: fit-content;
+    z-index: 10;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.nav ul li {
+    margin: auto;
+    cursor: pointer;
+    padding: 1%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+}
+
+.nav ul li:hover {
+    background-color: rgba(208, 255, 0, 0.335);
+}
+
+.active {
+    color: red;
+}
