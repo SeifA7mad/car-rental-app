@@ -13,16 +13,25 @@ const Navbar = () => {
         <li>
           <NavLink to='/store'>Store</NavLink>
         </li>
-        <li>
-          <NavLink to='/orders'>Orders</NavLink>
-        </li>
-        <li>
-          <NavLink to='/admin/addNewCar'>Add new vehicle</NavLink>
-        </li>
-        <li>
-          <NavLink to='/admin/vehicles'>Admin Vehicles</NavLink>
-        </li>
-        <li onClick={authCtx.logout}>logout</li>
+        {authCtx.isLoggedIn && (
+          <>
+            <li>
+              <NavLink to='/orders'>Orders</NavLink>
+            </li>
+            <li>
+              <NavLink to='/admin/addNewCar'>Add new vehicle</NavLink>
+            </li>
+            <li>
+              <NavLink to='/admin/vehicles'>Admin Vehicles</NavLink>
+            </li>
+            <li onClick={authCtx.logout}>logout</li>
+          </>
+        )}
+        {!authCtx.isLoggedIn && (
+          <li>
+            <NavLink to='/auth/login'>Login</NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

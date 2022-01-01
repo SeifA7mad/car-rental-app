@@ -38,7 +38,7 @@ const VehicleItem = ({ id, title, type, price, imgURL, onRemove }) => {
               type='link'
               className='btn btn-black btn-outline-black ml-1'
             >
-              Details
+              Edit
             </Button>
           </p>
         </div>

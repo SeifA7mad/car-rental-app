@@ -45,7 +45,10 @@ const ReservationForm = () => {
     !pickingLocationInput.inputValueIsValid ||
     !requestDriverInput.inputValueIsValid ||
     !requestInsuranceInput.inputValueIsValid ||
-    !cardCvcInput.inputValueIsValid;
+    !cardCvcInput.inputValueIsValid ||
+    !cardNumberInput.inputValueIsValid ||
+    !expiryMonthInput.inputValueIsValid ||
+    !expiryYearInput.inputValueIsValid ;
 
   // map for the different forms in the multi-step form
   const formContent = [
@@ -108,9 +111,9 @@ const ReservationForm = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    // if (!formValidaty) {
-    //   return;
-    // }
+    if (formValidaty) {
+      return;
+    }
 
     placeOrderRequest(
       {

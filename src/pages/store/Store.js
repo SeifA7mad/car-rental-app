@@ -1,13 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
-
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useContext } from 'react';
 import classes from './Store.module.css';
 import '../../css/cars-style.css';
+
+import { AuthContext } from '../../store/auth-context';
 
 import Vehicles from '../../components/vehicle/Vehicles';
 import VehicleDesc from '../../components/vehicle/vehicle-desc/VehicleDesc';
 import ReservationForm from '../../components/reservation/ReservationForm';
 
 const Store = () => {
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <section className='ftco-section'>
       <div className='container-fluid px-4'>
@@ -21,7 +24,10 @@ const Store = () => {
       <Routes>
         <Route path='/' element={<Vehicles />} />
         <Route path='/:id' element={<VehicleDesc />} />
-        <Route path='/reservation/:id' element={<ReservationForm />} />
+        {isLoggedIn && (
+          <Route path='/reservation/:id' element={<ReservationForm />} />
+        )}
+        <Route path='*' element={<Navigate to='/store' />} />
       </Routes>
     </section>
   );

@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import AddVehicleForm from '../../components/vehicle/admin-vehicle/add-vehicle/AddVehicleForm';
 import Vehicles from '../../components/vehicle/admin-vehicle/Vehicles';
+import UpdateVehicle from '../../components/vehicle/admin-vehicle/update-vehicle/UpdateVehicle';
 import '../../css/cars-style.css';
 
 const Admin = () => {
@@ -18,6 +19,7 @@ const Admin = () => {
       <Routes>
         <Route path='/addNewCar' element={<AddVehicleForm />} />
         <Route path='/vehicles' element={<Vehicles />} />
+        <Route path='/vehicles/:id' element={<UpdateVehicle />} />
       </Routes>
     </section>
   );

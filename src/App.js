@@ -11,20 +11,21 @@ import Order from './pages/order/Order';
 import Admin from './pages/admin/Admin';
 
 const App = () => {
-
   const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
-      {isLoggedIn && (
-        <header>
-          <Navbar />
-        </header>
-      )}
+      <header>
+        <Navbar />
+      </header>
       <Routes>
         {!isLoggedIn && <Route path='/auth/*' element={<Auth />} />}
         <Route path='/store/*' element={<Store />} />
-        <Route path='/orders/*' element={<Order />} />
-        <Route path='/admin/*' element={<Admin />} />
+        {isLoggedIn && (
+          <>
+            <Route path='/orders/*' element={<Order />} />
+            <Route path='/admin/*' element={<Admin />} />
+          </>
+        )}
         <Route path='/auth' element={<Navigate to='/auth/login' />} />
         <Route path='*' element={<Navigate to='/store' />} />
       </Routes>
