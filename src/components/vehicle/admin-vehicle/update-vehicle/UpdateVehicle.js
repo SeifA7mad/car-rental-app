@@ -74,7 +74,7 @@ const UpdateVehicle = () => {
       },
       setVehicleData.bind(null)
     );
-  }, [vehicle]);
+  }, []);
 
   const onSubmitFormHandler = (event) => {
     event.preventDefault();
@@ -224,7 +224,7 @@ const UpdateVehicle = () => {
               />
             </div>
             <div className='p-t-10'>
-              <button className='btn btn--pill btn--green' type='submit'>
+              <button className='btn btn--pill btn--green' type='submit' disabled={formValidaty}>
                 SAVE CHANGES
               </button>
             </div>

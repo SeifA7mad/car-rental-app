@@ -1,4 +1,7 @@
+import { Route, Routes } from 'react-router-dom';
+
 import Orders from '../../components/order/Orders';
+import UpdateOrder from '../../components/order/update-order/UpdateOrder';
 import '../../css/cars-style.css';
 
 const Order = () => {
@@ -12,7 +15,10 @@ const Order = () => {
           </div>
         </div>
       </div>
-      <Orders />
+      <Routes>
+        <Route path='/' element={<Orders />} />
+        <Route path='/:id' element={<UpdateOrder />} />
+      </Routes>
     </section>
   );
 };

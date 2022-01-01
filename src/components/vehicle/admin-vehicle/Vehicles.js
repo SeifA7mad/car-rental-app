@@ -39,6 +39,9 @@ const Vehicles = () => {
   };
 
   useEffect(() => {
+    if (vehicleList.length > 0) {
+      return;
+    }
     getVehicles(
       {
         url: 'http://localhost:3000/admin/vehicles',

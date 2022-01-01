@@ -41,11 +41,11 @@ const OrderItem = ({id, trackingDetails, vehicle, totalPrice, orderDate, onCanel
             Cancel
           </Button>
           <Button
-            click={() => {}}
+            click={() => {navigate(id)}}
             type='link'
             className='btn btn-black btn-outline-black ml-1'
           >
-            Details
+            EDIT
           </Button>
         </p>
       </div>

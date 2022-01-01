@@ -35,6 +35,9 @@ const Orders = () => {
   };
 
   useEffect(() => {
+    if (orderList.length > 0) {
+      return;
+    }
     getOrders(
       {
         url: 'http://localhost:3000/store/orders',

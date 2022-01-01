@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react';
 
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router';
 
 import { AuthContext } from '../../store/auth-context';
 import useHttp from '../../hooks/use-http';
@@ -9,6 +8,7 @@ import useHttp from '../../hooks/use-http';
 import UseInput from '../../hooks/use-input';
 import MultiStepProgressBar from '../ui/multi-step-progress-bar/MultiStepProgressBar';
 import Button from '../ui/button/Button';
+import IconText from '../ui/icons/IconText';
 import classes from './ReservationForm.module.css';
 import ReserveInputs from './multi-step-forms/ReserveInputs';
 import PaymentInputs from './multi-step-forms/PaymentInputs';
@@ -48,7 +48,7 @@ const ReservationForm = () => {
     !cardCvcInput.inputValueIsValid ||
     !cardNumberInput.inputValueIsValid ||
     !expiryMonthInput.inputValueIsValid ||
-    !expiryYearInput.inputValueIsValid ;
+    !expiryYearInput.inputValueIsValid;
 
   // map for the different forms in the multi-step form
   const formContent = [
@@ -75,8 +75,6 @@ const ReservationForm = () => {
 
   const { userToken } = useContext(AuthContext);
 
-  const navigate = useNavigate();
-
   const {
     isLoading,
     error: errorRequest,
@@ -85,6 +83,8 @@ const ReservationForm = () => {
 
   // state: to handle the forms has been visted
   const [activeLength, setActiveLength] = useState(1);
+
+  const [successMessge, setSuccessMessge] = useState('');
 
   // array for the diff text & icons in the progressbar
   const progressContent = [
@@ -105,8 +105,7 @@ const ReservationForm = () => {
 
   const recivedDataHandler = (dataObj) => {
     console.log(dataObj);
-    //navigate to orders
-    navigate('/store/orders');
+    setSuccessMessge(dataObj.message);
   };
 
   const onSubmitHandler = (event) => {
@@ -146,6 +145,9 @@ const ReservationForm = () => {
 
   return (
     <>
+      {!!successMessge && (
+        <IconText textInfo={successMessge} icon='fa fa-check' />
+      )}
       <MultiStepProgressBar
         progressContent={progressContent}
         activeLength={activeLength}
